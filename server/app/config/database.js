@@ -1,14 +1,16 @@
 const { Sequelize } = require('sequelize');
 const { logger } = require('../lib/myf.velixs.js');
 
-const { DB_DATABASE, DB_USERNAME, DB_PASSWORD, DB_HOST, DB_PORT, DB_CONNECTION } = process.env;
-let sequelize = new Sequelize(DB_DATABASE, DB_USERNAME, DB_PASSWORD, {
-    host: DB_HOST,
+const sequelize = new Sequelize(
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASS,
+  {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
     dialect: 'mysql'
-    port: DB_PORT,
-    dialect: DB_CONNECTION,
-    logging: false,
-});
+  }
+);
 
 function connectDatabase() {
     sequelize
