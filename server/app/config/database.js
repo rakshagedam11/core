@@ -4,6 +4,7 @@ const { logger } = require('../lib/myf.velixs.js');
 const { DB_DATABASE, DB_USERNAME, DB_PASSWORD, DB_HOST, DB_PORT, DB_CONNECTION } = process.env;
 let sequelize = new Sequelize(DB_DATABASE, DB_USERNAME, DB_PASSWORD, {
     host: DB_HOST,
+    dialect: 'mysql'
     port: DB_PORT,
     dialect: DB_CONNECTION,
     logging: false,
