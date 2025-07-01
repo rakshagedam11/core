@@ -10,10 +10,10 @@ const url = require('url');
 
 const server = new app();
 
-const { hostname, port } = url.parse(process.env.BASE_NODE);
+const PORT = process.env.PORT || 3000;
 
-const serverHttp = server.app.listen(port || 5570, hostname, () => {
-    logger("info", `[EXPRESS] App Listening at ${process.env.BASE_NODE}`);
+const serverHttp = server.app.listen(PORT, '0.0.0.0', () => {
+    logger("info", `[EXPRESS] App Listening at http://0.0.0.0:${PORT}`);
 });
 
 server.app.get("/", (req, res) => {
